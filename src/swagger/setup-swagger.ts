@@ -14,9 +14,13 @@ const swaggerOptions: swaggerJsdoc.Options = {
   apis: ["./src/**/*.swagger.yml"],
 };
 
-const swaggerSpec = swaggerJsdoc(swaggerOptions);
-
 export const setupSwagger = (app: Express) => {
-  app.use("/api", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-  app.use("/hometask_01/api", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+  try {
+    const swaggerSpec = swaggerJsdoc(swaggerOptions);
+    app.use("/api", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+    app.use("/hometask_01/api", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+  } catch (e) {
+    // Do not crash API startup if docs generation fails in serverless environment.
+    console.error("Swagger setup failed:", e);
+  }
 };
