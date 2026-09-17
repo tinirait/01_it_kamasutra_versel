@@ -13,14 +13,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devEngines": {
-    "packageManager": {
-      "name": "pnpm",
-      "version": "12.4.2",
-      "onFail": "download"
-    }
+  "engines": {
+    "node": ">=20"
   },
-  "packageManager": "pnpm@12.4.2",
   "dependencies": {
     "express": "^5.2.1",
     "swagger-jsdoc": "^6.3.0",
