@@ -138,6 +138,8 @@ const mountTestingRoutes = (base) => {
   });
 };
 
+mountVideosRoutes("");
+mountTestingRoutes("");
 mountVideosRoutes("/api");
 mountTestingRoutes("/api");
 mountVideosRoutes("/hometask_01/api");
