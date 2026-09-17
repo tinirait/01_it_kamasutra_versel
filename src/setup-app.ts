@@ -18,7 +18,9 @@ export const setupApp = (app: Express) => {
   app.use("/hometask_01/api/videos", videosRouter);
   app.use("/hometask_01/api/testing", testingRouter);
 
-  setupSwagger(app);
+  if (!process.env.VERCEL) {
+    setupSwagger(app);
+  }
 
   return app;
 };
